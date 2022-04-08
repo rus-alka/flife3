@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ExerciseRepository extends CrudRepository<Exercise, Integer> {
-    //@Query("SELECT e from Exercise e where e.plan.id = :planId")
-    //Iterable<Exercise> getAllExercise(Integer planId);
+    @Query("SELECT e from Exercise e where e.plan.id = :planId")
+    Iterable<Exercise> getAllExercise(Integer planId);
 
 }

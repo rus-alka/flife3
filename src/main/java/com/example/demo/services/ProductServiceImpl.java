@@ -18,10 +18,11 @@ public class ProductServiceImpl implements ProductService{
     public Product save(Product product) {
         return this.productRepository.save(product);
     }
-    /*@Override
+
+    @Override
     public Iterable<Product> getAllProduct(Integer planId) {
         return this.productRepository.getAllProduct(planId);
-    }*/
+    }
     @Override
     public void deleteById(Integer id) {
         this.productRepository.deleteById(id);

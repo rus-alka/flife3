@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.entities.Exercise;
 import com.example.demo.entities.Plan;
 import com.example.demo.repositories.PlanRepository;
 import lombok.AllArgsConstructor;
@@ -19,10 +20,10 @@ public class PlanServiceImpl implements PlanService{
         return this.plRepository.save(card);
     }
 
-    //@Override
-    //public Iterable<Plan> getAllPlan(Integer userId) {
-        //return this.plRepository.getAllPlan(userId);
-    //}
+    @Override
+    public Iterable<Plan> getAllPlan(Integer userId) {
+        return this.plRepository.getAllPlan(userId);
+    }
 
     @Override
     public void deleteById(Integer id) {

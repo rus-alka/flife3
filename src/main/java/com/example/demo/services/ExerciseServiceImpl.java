@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,5 +24,10 @@ public class ExerciseServiceImpl implements ExerciseService{
     @Override
     public void deleteById(Integer id) {
         this.exerciseRepository.deleteById(id);
+    }
+
+    @Override
+    public Iterable<Exercise> getAllExercise(Integer userId) {
+        return this.exerciseRepository.getAllExercise(userId);
     }
 }
