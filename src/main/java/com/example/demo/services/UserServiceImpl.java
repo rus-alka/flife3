@@ -19,10 +19,10 @@ public class UserServiceImpl implements UserService{
         return this.userRepository.save(user);
     }
 
-    @Override
-    public Iterable<User> getAllUsers() {
-        return this.userRepository.findAll();
-    }
+    //@Override
+    //public Iterable<User> getAllUsers() {
+    //    return this.userRepository.findAll();
+    //}
 
     public boolean canRegister(String name, String email) {
         if (!userRepository.findByName(name).isEmpty()) {

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Integer> {
-    @Query("SELECT pr from Product pr where pr.plan.id = :planId")
-    Iterable<Product> getAllProduct(Integer planId);
+    //@Query("SELECT pr from Product pr where pr.plan.id = :planId")
+    //Iterable<Product> getAllProduct(Integer planId);
 
 }

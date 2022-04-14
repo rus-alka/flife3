@@ -26,8 +26,9 @@ public class ExerciseServiceImpl implements ExerciseService{
         this.exerciseRepository.deleteById(id);
     }
 
-    @Override
+    /*@Override
     public Iterable<Exercise> getAllExercise(Integer userId) {
         return this.exerciseRepository.getAllExercise(userId);
     }
+     */
 }

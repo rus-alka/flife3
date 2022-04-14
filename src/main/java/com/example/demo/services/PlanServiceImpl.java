@@ -20,10 +20,10 @@ public class PlanServiceImpl implements PlanService{
         return this.plRepository.save(card);
     }
 
-    @Override
-    public Iterable<Plan> getAllPlan(Integer userId) {
-        return this.plRepository.getAllPlan(userId);
-    }
+    //@Override
+    //public Iterable<Plan> getAllPlan(Integer userId) {
+    //    return this.plRepository.getAllPlan(userId);
+    //}
 
     @Override
     public void deleteById(Integer id) {
