@@ -17,7 +17,8 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-	@Bean
+
+	/*@Bean
 	CommandLineRunner runner(ProductService productService, PlanService planService, UserService userService) {
 		return args -> {
 
@@ -48,6 +49,5 @@ public class DemoApplication {
 			userService.save(user);
 		};
 
-
-	}
+	}*/
 }
