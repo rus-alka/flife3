@@ -21,8 +21,8 @@ public class DemoApplication {
 	/*@Bean
 	CommandLineRunner runner(ProductService productService, PlanService planService, UserService userService) {
 		return args -> {
-
-			Product product = Product.builder()
+*/
+			/*Product product = Product.builder()
 					.id(45)
 					.name("mhhm")
 					.caloric(5645.5)
@@ -46,8 +46,10 @@ public class DemoApplication {
 					.plan(plan)
 					.build();
 
-			userService.save(user);
-		};
+			userService.save(user);*/
+	/*
+			};
+
 
 	}*/
 }
