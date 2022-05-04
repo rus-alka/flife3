@@ -56,6 +56,12 @@ public class HomeController {
         return "registration2";
     }
 
+    @RequestMapping("/profile")
+    public String profile(Model model) {
+        //model.addAttribute("registration", "Registration");
+        return "profile";
+    }
+
     @RequestMapping("/products")
     public String products(Model model) {
         Iterable<Product> products = productRepository.findAll();
