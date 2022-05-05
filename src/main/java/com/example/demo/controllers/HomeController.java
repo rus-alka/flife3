@@ -64,8 +64,8 @@ public class HomeController {
 
     @RequestMapping("/products")
     public String products(Model model) {
-        Iterable<Product> products = productRepository.findAll();
-        model.addAttribute("products", products);
+        //Iterable<Product> products = productRepository.findAll();
+        //model.addAttribute("products", products);
         return "products";
     }
 

@@ -16,38 +16,34 @@
     <!--<title>Login & Registration Form</title>-->
 </head>
 <body class="text-center" wfd-invisible="true">
-<section class="vh-150 bg-image" style="background: #4f6db8;">
+<section class="vh-150 bg-image" style="background: #4f6db8; padding: 100px;">
 
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="col-12 col-md-9 col-lg-6 col-xl-5">
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
                             <div class="fadeIn first">
-
                                 <img src="https://sun7-9.userapi.com/s/v1/if2/B5IxT6EGaEecd_5GMKexbnKEIqYcyPRO8HzicifobnYMnanFRWzTE9pDMApZL_CzUWU6x_A4p55kgq8uYXNTKZgg.jpg?size=350x200&quality=95&type=album" height="60" width="90"/>
                             </div>
-                            <h2 class="text-uppercase text-center mt-4">Войти</h2>
+                            <h3 class="text-center mt-4 mb-4">Войти</h3>
 
                             <form>
 
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example3cg">Email</label>
-                                    <input type="email" placeholder="Введите Ваш email" id="form3Example3cg" class="form-control form-control-lg" />
+                                <div class="form-outline mt-4 mb-3">
+                                    <input type="email" placeholder="Ваш email" id="form3Example3cg" class="form-control form-control-lg" />
                                 </div>
 
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example4cg">Пароль</label>
-                                    <input type="password" placeholder="Введите Ваш пароль" id="form3Example4cg" class="form-control form-control-lg" />
+                                <div class="form-outline mb-3">
+                                    <input type="password" placeholder="Ваш пароль" id="form3Example4cg" class="form-control form-control-lg" />
                                 </div>
 
-
-                                <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-primary btn-block btn-lg gradient-custom-1 text-body">Войти</button>
+                                <div class="d-flex justify-content-center" style="color:white">
+                                    <a href="/home" type="button" class="btn btn-primary btn-block btn-lg">Войти</a>
                                 </div>
 
-                                <p class="text-center text-muted mt-5 mb-0">Нет аккаунта? <a href="#!" class="fw-bold text-body"><u>Регистрация тут</u></a></p>
+                                <p class="text-center text-muted mt-4 mb-3">Нет аккаунта? <a href="/registration" class="fw-bold text-body"><u>Регистрация тут</u></a></p>
 
                             </form>
 
@@ -58,5 +54,6 @@
         </div>
     </div>
 </section>
+<div th:insert="footer :: footer"></div>
 </body>
 </html>
