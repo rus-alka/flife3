@@ -15,7 +15,7 @@
 </head>
 <body class="text-center" wfd-invisible="true">
 <div th:insert="head :: head"></div>
-<section class="vh-200 bg-image" style="background: #4f6db8; padding: 50px;">
+<section class="vh-200 bg-image" style="background: #4f6db8; padding: 40px;">
 
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
@@ -23,63 +23,45 @@
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
-                            <div class="fadeIn first">
+                            <h3 class="text-center mb-4">Сменить данные аккаунта</h3>
 
-                                <img src="https://sun7-9.userapi.com/s/v1/if2/B5IxT6EGaEecd_5GMKexbnKEIqYcyPRO8HzicifobnYMnanFRWzTE9pDMApZL_CzUWU6x_A4p55kgq8uYXNTKZgg.jpg?size=350x200&quality=95&type=album" height="60" width="90"/>
+                            <p class="text-black mt-4 mb-2"><font size="4">Какая ваша основная цель?</font></p>
+
+                            <div class="btn-group mb-4" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Сброс веса
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="options" id="option2" autocomplete="off"> Набор веса
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="options" id="option3" autocomplete="off"> Удержание веса
+                                </label>
                             </div>
-                            <h2 class="text-uppercase text-center mt-4">Данные аккаунта</h2>
 
                             <form>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">Имя</label>
-                                    <input type="text"  id="form3Example1cg" class="form-control form-control-lg" />
+                                <div class="form-outline mb-3">
+                                    <input type="text" placeholder="Ваше имя" id="form3Example1cg" class="form-control form-control-lg" />
                                 </div>
 
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example3cg">Email</label>
-                                    <input type="email"  id="form3Example3cg" class="form-control form-control-lg" />
+                                <div class="form-outline mb-3">
+                                    <input type="email" placeholder="Ваш email" id="form3Example3cg" class="form-control form-control-lg" />
                                 </div>
 
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example4cg">Пароль</label>
-                                    <input type="password"  id="form3Example4cg" class="form-control form-control-lg" />
+                                <div class="form-outline mb-3">
+                                    <input type="password" placeholder="Ваш пароль" id="form3Example4cg" class="form-control form-control-lg" />
                                 </div>
 
+                                <div class="form-outline mb-3">
+                                    <input type="text" placeholder="Ваш вес" id="form3Example5cg" class="form-control form-control-lg" />
+                                </div>
 
-                                    <h4 class="text-black mb-3">Наша цель: </h4>
-                                    <div class="btn-group" data-toggle="buttons">
-                                    </div>
-                                    <!-- Radio buttons -->
-                                    <div class="btn-group" data-toggle="buttons">
-                                        <label class="btn btn-primary active">
-                                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Сброс веса
-                                        </label>
-                                        <label class="btn btn-primary">
-                                            <input type="radio" name="options" id="option2" autocomplete="off"> Набор веса
-                                        </label>
-                                        <label class="btn btn-primary">
-                                            <input type="radio" name="options" id="option3" autocomplete="off"> Удержание веса
-                                        </label>
-                                    </div>
+                                <div class="form-outline mb-3">
+                                    <input type="text" placeholder="Ваш рост" id="form3Example6cg" class="form-control form-control-lg" />
+                                </div>
 
-                                    <div class="form-outline mb-4">
-                                        <label class="form-label" for="form3Example5cg">Вес</label>
-                                        <input type="text" id="form3Example5cg" class="form-control form-control-lg" />
-                                    </div>
-
-                                    <div class="form-outline mb-4">
-                                        <label class="form-label" for="form3Example6cg">Рост</label>
-                                        <input type="text"  id="form3Example6cg" class="form-control form-control-lg" />
-                                    </div>
-
-                                    <div class="form-outline mb-4">
-                                        <label class="form-label" for="form3Example7cg">Телефон</label>
-                                        <input type="text" id="form3Example7cg" class="form-control form-control-lg" />
-                                    </div>
-
-                                    <h6 class="mb-0 me-4">Пол: </h6>
-
+                                <div class="d-flex justify-content-around mt-3 mb-2" style="color: black">
+                                    <p class="text-black mt-2 mb-2"><font size="4">Пол:</font></p>
                                     <div class="form-check form-check-inline mb-0 me-4">
                                         <input
                                                 class="form-check-input"
@@ -102,9 +84,11 @@
                                         <label class="form-check-label" for="maleGender">М</label>
                                     </div>
 
-                                    <div class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-primary btn-lg">Сохранить изменения</button>
-                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-center mt-4">
+                                    <a href="/home" type="button" class="btn btn-primary btn-lg">Сохранить</a>
+                                </div>
 
                             </form>
 
