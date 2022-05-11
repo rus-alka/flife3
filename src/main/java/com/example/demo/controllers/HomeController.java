@@ -74,6 +74,12 @@ public class HomeController {
         //model.addAttribute("exercises", "Exercises");
         return "exercises";
     }
+
+    @RequestMapping(value = "/**")
+    public String error(){
+        return "not-found";
+    }
+
     /*@RequestMapping("/registration.html")
     public ModelAndView registerUserAccount(
             @ModelAttribute("user") User userDto,
