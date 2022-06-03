@@ -35,29 +35,6 @@ public class HomeController {
         model.addAttribute("title", "Главная страница");
         return "login";
     }*/
-    @RequestMapping("/login")
-    public String login(Model model) {
-        //model.addAttribute("userForm", "Главная страница");
-        return "login";
-    }
-
-    @RequestMapping("/registration")
-    public String registration(Model model) {
-        //model.addAttribute("registration", "Registration");
-        return "registration";
-    }
-
-    @RequestMapping("/registration2")
-    public String registration2(Model model) {
-        //model.addAttribute("registration", "Registration");
-        return "registration2";
-    }
-
-    @RequestMapping("/profile")
-    public String profile(Model model) {
-        //model.addAttribute("registration", "Registration");
-        return "profile";
-    }
 
     @RequestMapping("/products")
     public String products(Model model) {

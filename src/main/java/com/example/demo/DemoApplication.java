@@ -18,38 +18,30 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	/*@Bean
+	@Bean
 	CommandLineRunner runner(ProductService productService, PlanService planService, UserService userService) {
 		return args -> {
-*/
-			/*Product product = Product.builder()
-					.id(45)
-					.name("mhhm")
-					.caloric(5645.5)
-					.weight(34.4)
-					.build();
-
-			productService.save(product);
-			//productService.deleteById();
 
 			Plan plan = Plan.builder()
-					.id(39)
+					.id(6)
 					.build();
 
 			planService.save(plan);
 
-			User user = User.builder()
-					.id(44)
-					.name_us("alla")
-					.gender("f")
-					.privilege(false)
+
+			/*User user = User.builder()
+					.name_us("Алла")
+					.email_us("alla@gmail.com")
+					.password_us("dddddd")
+					.weight(60.2)
+					.height(172.0)
+					.phone_number("89277231825")
+					.gender("1")
 					.plan(plan)
 					.build();
 
 			userService.save(user);*/
-	/*
+
 			};
-
-
-	}*/
+	}
 }
