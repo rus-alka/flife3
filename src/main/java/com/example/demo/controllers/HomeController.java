@@ -1,18 +1,27 @@
 package com.example.demo.controllers;
 
-import com.example.demo.entities.Exercise;
-import com.example.demo.entities.Product;
-import com.example.demo.entities.User;
+import com.example.demo.entities.*;
 import com.example.demo.repositories.ExerciseRepository;
+import com.example.demo.repositories.ImageRepository;
+import com.example.demo.repositories.PlanRepository;
 import com.example.demo.repositories.ProductRepository;
+import com.example.demo.services.PlanService;
 import com.example.demo.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
 
 @Controller
 public class HomeController {
@@ -21,50 +30,62 @@ public class HomeController {
     private ProductRepository productRepository;
     @Autowired
     private ExerciseRepository exerciseRepository;
+    @Autowired
+    private PlanRepository planRepository;
 
-    private ProductService productService;
+    @Autowired
+    private PlanService planService;
 
-    @RequestMapping("/home")
-    public String home(Model model) {
+    @GetMapping("/home")
+    public String home(/*@RequestParam("weight") Double weight,*/ Model model) {
+        Iterable<Plan> plan = planRepository.findAll();
+        //узнать ид пользователя-ид плана-нужные поля плана
+        Iterable<Product> products = productRepository.findAll();
+         double count = 0;
+        for(Plan item : plan)
+        {
+            count +=1;//item.getPlusCaloric()*products.;
+        }
+        planService.addPlan(count);
+        model.addAttribute("caloric", count);
+
+        model.addAttribute("plusCaloric", plan);
+
         return "home";
     }
 
+    /*@PostMapping("/home")
+    public String homePost(Model model, @RequestParam("weight") Double weight) {
 
-    /*@RequestMapping("/")
-    public String login(Model model){
-        model.addAttribute("title", "Главная страница");
-        return "login";
+        Iterable<Product> products = productRepository.findAll();
+        model.addAttribute("weight", weight);
+        //planService.addPlan(weight);
+        System.out.println("++++++++++++++++++++++++++"+weight);
+        return "redirect:/home";
     }*/
-    @RequestMapping("/login")
-    public String login(Model model) {
-        //model.addAttribute("userForm", "Главная страница");
-        return "login";
-    }
-
-    @RequestMapping("/registration")
-    public String registration(Model model) {
-        //model.addAttribute("registration", "Registration");
-        return "registration";
-    }
-
-    @RequestMapping("/registration2")
-    public String registration2(Model model) {
-        //model.addAttribute("registration", "Registration");
-        return "registration2";
-    }
-
-    @RequestMapping("/profile")
-    public String profile(Model model) {
-        //model.addAttribute("registration", "Registration");
-        return "profile";
-    }
-
-    @RequestMapping("/products")
-    public String products(Model model) {
-        //Iterable<Product> products = productRepository.findAll();
-        //model.addAttribute("products", products);
+    @GetMapping("/products")
+    public String products(/*@RequestParam("weight") Double weight,*/ Model model) {
+        Iterable<Product> products = productRepository.findAll();
+        model.addAttribute("products", products);
         return "products";
     }
+
+    @PostMapping("/products")
+    public String productsPost(@RequestParam("weight") Double weight, Model model) {
+        Iterable<Product> products = productRepository.findAll();
+
+        System.out.println("jjjjj");
+        this.planService.addPlan(weight);
+        return "redirect:/home";
+    }
+
+    /*@PostMapping("/products/add")
+    public String add(@RequestParam("plusCaloric") Double plusCaloric,
+                      Model model) {
+        planService.addPlan(plusCaloric);
+        return "redirect:/home";
+        //return "redirect:/";
+    }*/
 
     @RequestMapping("/exercises")
     public String exercises(Model model) {
@@ -77,19 +98,17 @@ public class HomeController {
         return "not-found";
     }
 
-    /*@RequestMapping("/registration.html")
-    public ModelAndView registerUserAccount(
-            @ModelAttribute("user") User userDto,
-            HttpServletRequest request,
-            Errors errors) {
+/*https://www.techgeeknext.com/spring-boot/spring-boot-upload-image
+https://www.baeldung.com/java-db-storing-files
+https://www.bezkoder.com/spring-boot-upload-file-database/
+https://www.codejava.net/frameworks/spring-boot/spring-boot-file-upload-tutorial*/
 
-        try {
-            User registered = userService.registerNewUserAccount(userDto);
-        } catch (UserAlreadyExistException uaeEx) {
-            mav.addObject("message", "An account for that username/email already exists.");
-            return mav;
-        }
 
-        // rest of the implementation
-    }*/
+
+    @RequestMapping("/removeProduct/{id}")
+    public String removeItem(@PathVariable("id") Integer id, HttpServletRequest request) {
+        String sessionToken = (String) request.getSession(false).getAttribute("sessionToken");
+        planService.removeFromPlan(id,sessionToken);
+        return "redirect:/home";
+    }
 }

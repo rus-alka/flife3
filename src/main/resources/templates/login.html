@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Вход</title>
     <meta charset="UTF-8">
@@ -31,18 +31,18 @@
                             </div>
                             <h3 class="text-center mt-4 mb-4">Войти</h3>
 
-                            <form>
+                            <form action="/login" method="login">
 
                                 <div class="form-outline mt-4 mb-3">
-                                    <input type="email" placeholder="Ваш email" id="form3Example3cg" class="form-control form-control-lg" />
+                                    <input type="email" name="email" placeholder="Ваш email" id="form3Example3cg" class="form-control form-control-lg" />
                                 </div>
 
                                 <div class="form-outline mb-3">
-                                    <input type="password" placeholder="Ваш пароль" id="form3Example4cg" class="form-control form-control-lg" />
+                                    <input type="password" name="password" placeholder="Ваш пароль" id="form3Example4cg" class="form-control form-control-lg" />
                                 </div>
 
                                 <div class="d-flex justify-content-center" style="color:white">
-                                    <a href="/home" type="button" class="btn btn-primary btn-block btn-lg">Войти</a>
+                                    <button href="/home" type="submit" class="btn btn-primary btn-block btn-lg">Войти</button>
                                 </div>
 
                                 <p class="text-center text-muted mt-4 mb-3">Нет аккаунта? <a href="/registration" class="fw-bold text-body"><u>Регистрация тут</u></a></p>
