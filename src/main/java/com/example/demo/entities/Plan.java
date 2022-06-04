@@ -1,6 +1,9 @@
 package com.example.demo.entities;
 
+import com.example.demo.repositories.PlanRepository;
+import com.example.demo.services.ProductService;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,19 +21,27 @@ public class Plan {
     @GeneratedValue
     private Integer id;
 
+    private Double plusCaloric;
+    private Double minusCaloric;
+
+    private Double plusProtein;
+    private Double plusFat;
+    private Double plusCarbohydrates;
+
     @Builder
     public Plan(Integer id) {
         this.id = id;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "plan")
-    Set<User> user = new HashSet<>();
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "plan")
+    User user;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     Set<Exercise> exercises = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    Set<Exercise> products = new HashSet<>();
+    Set<Product> products = new HashSet<>();
+    private String sessionToken;
 
     @Override
     public boolean equals(Object o) {
@@ -46,5 +57,7 @@ public class Plan {
     public int hashCode() {
         return id.hashCode();
     }
+
+
 
 }

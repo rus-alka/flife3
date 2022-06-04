@@ -24,13 +24,13 @@ public class UserServiceImpl implements UserService{
     //    return this.userRepository.findAll();
     //}
 
-    /*public boolean canRegister(String name_us, String email_us) {
-        if (!userRepository.findByName(name_us).isEmpty()) {
+    public boolean canRegister(String name, String email) {
+        if (!userRepository.findByName(name).isEmpty()) {
             return false;
         }
-        if (!userRepository.findByEmail(email_us).isEmpty()) {
+        if (!userRepository.findByEmail(email).isEmpty()) {
             return false;
         }
         return true;
-    }*/
+    }
 }

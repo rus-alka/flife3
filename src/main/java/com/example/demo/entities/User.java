@@ -11,10 +11,12 @@ import javax.persistence.*;
 @Setter
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private Integer id;
 
-    private String name_us;
+    private String name;
+
+    private String surname;
 
     private String gender;
 
@@ -24,23 +26,28 @@ public class User {
 
     private String phone_number;
 
-    private String email_us;
+    private String email;
 
-    private String password_us;
+    private String password;
+
+    private Boolean privilege;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     Plan plan;
 
     @Builder
-    public User(String name_us, String email_us, String password_us, Plan plan, Double weight, Double height,
-                String phone_number, String gender){
-        this.name_us=name_us;
-        this.email_us=email_us;
-        this.password_us=password_us;
-        this.weight=weight;
-        this.height=height;
-        this.phone_number = phone_number;
+    public User(Integer id, String name_us, String surname,  String gender, Double height, Double weight,
+                String phone_number, String email_us,  String password_us, Boolean privilege, Plan plan){
+        this.id=id;
+        this.name=name_us;
+        this.surname=surname;
         this.gender=gender;
+        this.height=height;
+        this.weight=weight;
+        this.phone_number = phone_number;
+        this.email=email_us;
+        this.password=password_us;
+        this.privilege=privilege;
         this.plan=plan;
     }
 
