@@ -16,7 +16,7 @@ public class User {
 
     private String name;
 
-    private String surname;
+    //private String surname;
 
     private String gender;
 
@@ -32,23 +32,18 @@ public class User {
 
     private Boolean privilege;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @OneToOne(cascade = CascadeType.MERGE)
     Plan plan;
 
     @Builder
-    public User(Integer id, String name_us, String surname,  String gender, Double height, Double weight,
-                String phone_number, String email_us,  String password_us, Boolean privilege, Plan plan){
-        this.id=id;
+    public User(String name_us, String email_us, String password_us, Double weight, Double height,
+                String phone_number, String gender){
         this.name=name_us;
-        this.surname=surname;
         this.gender=gender;
         this.height=height;
         this.weight=weight;
         this.phone_number = phone_number;
         this.email=email_us;
-        this.password=password_us;
-        this.privilege=privilege;
-        this.plan=plan;
     }
 
 

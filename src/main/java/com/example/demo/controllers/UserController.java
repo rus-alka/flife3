@@ -7,23 +7,15 @@ import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.*;
-=======
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
->>>>>>> origin/04062022
 
 @Controller
 public class UserController {
 
     @Autowired
-<<<<<<< HEAD
-    private UserRepository userRepository;
-=======
->>>>>>> origin/04062022
     private UserService userService;
 
     @RequestMapping("/login")
@@ -31,57 +23,24 @@ public class UserController {
         return "login";
     }
 
-<<<<<<< HEAD
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
         return "registration";
     }
-    public String registration(@RequestParam String name_us, @RequestParam String email_us,  @RequestParam String password_us,
-                               @RequestParam Plan plan, @RequestParam Double weight, @RequestParam Double height,
-                               @RequestParam String phone_number, @RequestParam String gender, Model model) {
-        //User user = new User(name_us, email_us, password_us, plan, weight, height, phone_number, gender);
-        //userRepository.save(user);
-        return "registration";
-    }
-
-    @RequestMapping(value = "/registration2",  method = RequestMethod.POST)
-    public String registration2(Model model) {
-        return "registration2";
-    }
-    public String registration2(@RequestParam User user) {
-        userRepository.save(user);
-        return "redirect:/home";
-    }
-
-    /*@PostMapping("/registration2")
-    public String registration2(User user) {
-        userRepository.save(user);
-        return "redirect:/home";
-    }*/
-
-=======
-    /*@RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public String registration(Model model) {
-        return "registration";
-    }*/
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registration(@RequestParam String name_us, @RequestParam String email_us, @RequestParam String password_us,
-                               @RequestParam Double weight, @RequestParam Double height,
-                               @RequestParam String phone_number, @RequestParam String gender, Model model) {
-        User user = new User(name_us, gender, height, weight, phone_number, email_us, password_us);
+    public String registration(@RequestParam String name_us, @RequestParam String email_us,
+                               @RequestParam String password_us, @RequestParam Double weight, @RequestParam Double height,
+                               @RequestParam String phone_number,
+                               @RequestParam String gender, Model model) {
+        User user = new User(name_us, email_us, password_us, weight, height, phone_number, gender);
         userService.save(user);
         return "redirect:/home";
     }
 
->>>>>>> origin/04062022
     @RequestMapping("/profile")
     public String profile(Model model) {
         //model.addAttribute("registration", "Registration");
         return "profile";
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/04062022
 }
