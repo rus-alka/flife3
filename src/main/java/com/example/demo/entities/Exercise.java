@@ -22,8 +22,7 @@ public class Exercise {
     private Integer duration;
 
     @Builder
-    public Exercise(Integer id, String name, Double energy_consumption, Integer duration) {
-        this.id = id;
+    public Exercise(String name, Double energy_consumption, Integer duration) {
         this.name = name;
         this.energy_consumption = energy_consumption;
         this.duration = duration;

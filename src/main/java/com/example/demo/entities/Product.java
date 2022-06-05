@@ -16,14 +16,12 @@ public class Product {
     private Integer id;
 
     private String name;
-
     private Double caloric;
-
-    private Double weight;
-
     private Double protein;
     private Double fat;
     private Double carbohydrates;
+
+    private Double weight;
 
     private String image_product;
 
@@ -45,17 +43,12 @@ public class Product {
     }
 
     @Builder
-    public Product(Integer id, String name, Double caloric, Double weight, Double protein, Double fat, Double carbohydrates, String image) {
-        this.id = id;
+    public Product(String name, Double caloric, Double protein, Double fat, Double carbohydrates) {
         this.name = name;
         this.caloric = caloric;
-        this.weight = weight;
         this.protein= protein;
         this.fat = fat;
         this.carbohydrates = carbohydrates;
-        this.image_product=image;
     }
-
-
 
 }

@@ -62,11 +62,19 @@ public class HomeController {
         System.out.println("++++++++++++++++++++++++++"+weight);
         return "redirect:/home";
     }*/
+
     @GetMapping("/products")
     public String products(/*@RequestParam("weight") Double weight,*/ Model model) {
         Iterable<Product> products = productRepository.findAll();
         model.addAttribute("products", products);
         return "products";
+    }
+
+    @GetMapping("/exercises")
+    public String exercises(Model model) {
+        Iterable<Exercise> exercises = exerciseRepository.findAll();
+        model.addAttribute("exercises", exercises);
+        return "exercises";
     }
 
     @PostMapping("/products")
@@ -86,19 +94,16 @@ public class HomeController {
         //return "redirect:/";
     }*/
 
-    @RequestMapping("/exercises")
+    /*@RequestMapping("/exercises")
     public String exercises(Model model) {
         //model.addAttribute("exercises", "Exercises");
         return "exercises";
-    }
+    }*/
 
     @RequestMapping(value = "/**")
     public String error(){
         return "not-found";
     }
-
-
-
 
     @RequestMapping("/removeProduct/{id}")
     public String removeItem(@PathVariable("id") Integer id, HttpServletRequest request) {
