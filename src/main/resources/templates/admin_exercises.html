@@ -26,14 +26,17 @@
                             <div class="shadow p-4 mb-4 bg-white">
                                 <form action="/admin/exercises" method="post">
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                             <input type="text" name="name" placeholder="Название" class="form-control form-control" />
                                         </div>
                                         <div class="col-md-3">
                                             <input type="text" name="energy_consumption" placeholder="Энергозатраты" class="form-control form-control" />
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <input type="text" name="duration" placeholder="Продолжительность" class="form-control form-control" />
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="text" name="image_exercise" placeholder="Ссылка" class="form-control form-control" />
                                         </div>
                                         <div class="col-md-2">
                                             <button type="submit" class="btn btn-primary btn-block">Добавить</button>
@@ -47,8 +50,8 @@
                                     <table class="table">
                                         <tr>
                                             <th>Название</th>
-                                            <th class="text-center">Энергозатраты</th>
-                                            <th class="text-center"> Продолжительность</th>
+                                            <th class="text-center">Энергозатраты (ккал)</th>
+                                            <th class="text-center"> Продолжительность (мин)</th>
                                         </tr>
                                         <tr th:each="el : ${exercises}">
                                             <td th:text="${el.name}"> </td>

@@ -26,11 +26,15 @@
                                 <div class="row g-0">
                                     <table class="table">
                                         <tr>
+                                            <th></th>
                                             <th>Название</th>
-                                            <th class="text-center">Энергозатраты</th>
-                                            <th class="text-center">Продолжительность</th>
+                                            <th class="text-center">Энергозатраты (ккал)</th>
+                                            <th class="text-center">Продолжительность (мин)</th>
                                         </tr>
                                         <tr th:each="el : ${exercises}">
+                                            <td>
+                                                <input type="image" th:src="${el.image_exercise}" alt="miniature" onclick="changeImage();" style="width: 80px; height: 80px; margin: 3px">
+                                            </td>
                                             <td th:text="${el.name}"> </td>
                                             <td class="text-center" th:text="${el.energy_consumption}"> </td>
                                             <td class="text-center" th:text="${el.duration}"/> </td>

@@ -43,8 +43,8 @@ public class AdminController {
     @RequestMapping(value = "/admin/products", method = RequestMethod.POST)
     public String admin_products(@RequestParam String name, @RequestParam Double caloric,
                                  @RequestParam Double protein, @RequestParam Double fat,
-                                 @RequestParam Double carbohydrates, Model model) {
-        Product product = new Product(name, caloric, protein, fat, carbohydrates);
+                                 @RequestParam Double carbohydrates, @RequestParam String image_product, Model model) {
+        Product product = new Product(name, caloric, protein, fat, carbohydrates, image_product);
         productService.save(product);
         return "redirect:/admin";
     }
@@ -58,8 +58,8 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/exercises", method = RequestMethod.POST)
     public String admin_exercises(@RequestParam String name, @RequestParam Double energy_consumption,
-                                  @RequestParam Integer duration, Model model) {
-        Exercise exercise = new Exercise(name, energy_consumption, duration);
+                                  @RequestParam Integer duration, @RequestParam String image_exercise, Model model) {
+        Exercise exercise = new Exercise(name, energy_consumption, duration, image_exercise);
         exerciseService.save(exercise);
         return "redirect:/admin";
     }
