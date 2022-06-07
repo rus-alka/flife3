@@ -10,4 +10,7 @@ public interface UserService {
     boolean canRegister(String name, String email);
 
     Optional<User> findById(Integer id);
+    Optional<User> findByEmail(String email);
+
+    int canLogin(Integer id, String password);
 }

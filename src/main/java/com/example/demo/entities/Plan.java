@@ -21,20 +21,25 @@ public class Plan {
     @GeneratedValue
     private Integer id;
 
-    private Double plusCaloric;
-    private Double minusCaloric;
+    private Double plusCaloric=0.;
+    private Double minusCaloric=0.;
 
-    private Double plusProtein;
+    private Double plusProtein=0.;
     private Double plusFat;
     private Double plusCarbohydrates;
+
 
     @Builder
     public Plan(Integer id) {
         this.id = id;
     }
 
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "plan")
-    User user;
+    //@OneToOne//(fetch = FetchType.EAGER, mappedBy = "plan")
+    //User user;
+
+    //@OneToOne
+    //@JoinColumn(name = "user_id")
+    //private User user;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     Set<Exercise> exercises = new HashSet<>();
@@ -57,7 +62,4 @@ public class Plan {
     public int hashCode() {
         return id.hashCode();
     }
-
-
-
 }

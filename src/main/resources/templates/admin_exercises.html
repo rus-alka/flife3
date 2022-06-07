@@ -9,54 +9,72 @@
 
 </head>
 <body>
-<div th:insert="head :: head"></div>
+<div th:insert="admin_head :: head"></div>
 <section class="vh-150 bg-image" style="background: #4f6db8; padding: 40px;">
 
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-9 col-lg-9 col-xl-8">
+                <div class="col-12 col-md-9 col-lg-9 col-xl-9">
 
 
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
 
                             <h2 class="text-center mt-1 mb-5" style="color: black;">Упражнения</h2>
+
+                            <div class="shadow p-4 mb-4 bg-white">
+                                <form action="/admin/exercises" method="post">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <input type="text" name="name" placeholder="Название" class="form-control form-control" />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" name="energy_consumption" placeholder="Энергозатраты" class="form-control form-control" />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" name="duration" placeholder="Продолжительность" class="form-control form-control" />
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="text" name="image_exercise" placeholder="Ссылка" class="form-control form-control" />
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="submit" class="btn btn-primary btn-block">Добавить</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
                             <div class="shadow p-4 mb-4 bg-white">
                                 <div class="row g-0">
                                     <table class="table">
                                         <tr>
-                                            <th></th>
                                             <th>Название</th>
                                             <th class="text-center">Энергозатраты (ккал)</th>
-                                            <th class="text-center">Продолжительность (мин)</th>
+                                            <th class="text-center"> Продолжительность (мин)</th>
                                         </tr>
                                         <tr th:each="el : ${exercises}">
-                                            <td>
-                                                <input type="image" th:src="${el.image_exercise}" alt="miniature" onclick="changeImage();" style="width: 80px; height: 80px; margin: 3px">
-                                            </td>
                                             <td th:text="${el.name}"> </td>
                                             <td class="text-center" th:text="${el.energy_consumption}"> </td>
                                             <td class="text-center" th:text="${el.duration}"/> </td>
                                             <td class="text-center">
-
-                                                <form th:action ="'/exercises/'+${userId}+'/'+${el.id}" method="post">
-                                                    <button type="submit" class="btn btn-primary mb-2">Добавить</button>
+                                                <form action ="/admin/exercises" method="post">
+                                                    <button type="submit" class="btn btn-danger btn-block">Удалить</button>
                                                 </form>
                                             </td>
                                         </tr>
                                     </table>
-
-                                    <div class="d-flex justify-content-center mt-4 mb-3">
-                                        <a href="/home" type="button" class="btn btn btn-outline-primary btn-lg btn-block">На главную страницу</a>
-                                    </div>
-
                                 </div>
                             </div>
+
+                            <div class="d-flex justify-content-center mt-4 mb-3">
+                                <a href="/admin" type="button" class="btn btn btn-primary btn-lg btn-block">На главную страницу</a>
+                            </div>
+
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>

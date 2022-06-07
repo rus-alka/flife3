@@ -1,5 +1,4 @@
 package com.example.demo.entities;
-
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,12 +20,14 @@ public class Exercise {
 
     private Integer duration;
 
+    private String image_exercise;
+
     @Builder
-    public Exercise(Integer id, String name, Double energy_consumption, Integer duration) {
-        this.id = id;
+    public Exercise(String name, Double energy_consumption, Integer duration, String image_exercise) {
         this.name = name;
         this.energy_consumption = energy_consumption;
         this.duration = duration;
+        this.image_exercise = image_exercise;
     }
 
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "exercises")

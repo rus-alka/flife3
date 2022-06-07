@@ -4,6 +4,9 @@ import com.example.demo.entities.Plan;
 
 public interface PlanService {
     Plan save(Plan plan);
+
+    Plan getPlan(Integer userId);
+
     //Iterable<Plan> getAllPlan(Integer userId);
     void deleteById(Integer id);
     Plan addPlanFirstTime(Integer id, String sessionToken, Double caloric);
@@ -13,5 +16,4 @@ public interface PlanService {
     void clearPlan(String sessionToken);
     Plan addPlan(Double caloric);
 
-    Plan getPlan(String planId);
 }

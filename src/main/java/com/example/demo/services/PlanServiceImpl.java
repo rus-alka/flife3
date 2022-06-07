@@ -1,6 +1,5 @@
 package com.example.demo.services;
 
-import com.example.demo.entities.Exercise;
 import com.example.demo.entities.Plan;
 import com.example.demo.entities.Product;
 import com.example.demo.repositories.PlanRepository;
@@ -30,10 +29,10 @@ public class PlanServiceImpl implements PlanService{
         return this.planRepository.save(pl);
     }
 
-    //@Override
-    //public Iterable<Plan> getAllPlan(Integer userId) {
-    //    return this.plRepository.getAllPlan(userId);
-    //}
+    @Override
+    public Plan getPlan(Integer userId) {
+        return this.planRepository.getPlan(userId);
+    }
 
     @Override
     public void deleteById(Integer id) {
@@ -41,8 +40,6 @@ public class PlanServiceImpl implements PlanService{
     }
 
     public Plan addPlan( Double caloric){
-
-        System.out.println("ijjjjjjjjjjjjjjjjjjjjjj");
         Plan plan = new Plan();
         plan.setPlusCaloric(caloric);
         plan.setId(160);

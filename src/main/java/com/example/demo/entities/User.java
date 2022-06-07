@@ -32,13 +32,15 @@ public class User {
 
     private Boolean privilege;
 
-    @OneToOne
-    Plan plan;
+    //@OneToOne
+    //Plan plan;
 
     @Builder
     public User(String name_us, /*String surname, */ String gender, Double height, Double weight,
                 String phone_number, String email_us,  String password_us){
        // this.id=id;
+        Plan plan1 = new Plan(this.id);
+
         this.name=name_us;
         //this.surname=surname;
         this.gender=gender;
@@ -47,8 +49,9 @@ public class User {
         this.phone_number = phone_number;
         this.email=email_us;
         this.password=password_us;
-        //this.privilege=privilege;
-        //this.plan=plan;
+        this.privilege=false;
+        //this.plan.setId();
+        //this.plan=plan1;
     }
 
 

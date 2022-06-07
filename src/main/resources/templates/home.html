@@ -39,19 +39,6 @@
                 <h5></h5>
                 <svg width="400" height="200">
                     <circle cx="250" cy="100" r="50" stroke="white" stroke-width="1" fill=#d16060 />
-                    //
-                    <div class="shadow p-4 mb-4 bg-white">
-                        <div class="row g-0">
-                            <table>
-                                <tr>
-                                    <th>Название</th>
-                                </tr>
-                                <tr th:each="el : ${plusCaloric}">
-                                    <td th:text="${el.PlusCaloric}"> </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
                     <<text x="56%" y="50%" font-size="28" fill="#FFFFFF">134</text>
                     <text x="58%" y="60%" font-size="16" fill="#FFFFFF">ккал</text>
                     <text x="52%" y="90%" font-size="22" fill="#FFFFFF">набрано</text>
@@ -64,10 +51,16 @@
                 <svg width="400" height="200">
                     <title>Осталось совсем немного!</title>
                     <circle cx="200" cy="100" r="80" stroke="white" stroke-width="1" fill=#d16060 />
+
+                    <div class="shadow p-4 mb-4 bg-white">
+                        <div class="row g-0">
+                            <table>
+                                    <td th:text="${plusCaloric}"> </td>
+                            </table>
+                        </div>
+                    </div>
                     <text x="42%" y="64%" font-size="16" fill="#FFFFFF">осталось</text>
                     <text x="46%" y="74%" font-size="16" fill="#FFFFFF">ккал</text>
-
-                    ///
 
                 </svg>
             </center>
@@ -78,7 +71,7 @@
                 <h5></h5>
                 <svg width="400" height="200">
                     <circle cx="150" cy="100" r="50" stroke="white" stroke-width="1" fill=#d16060 />
-                    <text x="32%" y="50%" font-size="28" fill="#FFFFFF">556</text>
+                    <span th:text="${minusCaloric}" x="32%" y="50%" font-size="28" fill="#FFFFFF">  </span>
                     <text x="34%" y="60%" font-size="16" fill="#FFFFFF">ккал</text>
                     <text x="25%" y="90%" font-size="22" fill="#FFFFFF">сброшено</text>
                 </svg>
@@ -99,7 +92,7 @@
                 <h5></h5>
                 <h6>углеводы</h6>
                 <hr class="featurette-divider">
-                <p>98 / 194г</p>
+                <p th:text="${plusCarbohydrates}"></p>
             </center>
         </div>
 
@@ -114,7 +107,7 @@
                 <h5></h5>
                 <h6>белки</h6>
                 <hr class="featurette-divider">
-                <p>23 / 77г</p>
+                <p th:text="${plusProtein}"></p>
             </center>
         </div>
 
@@ -129,7 +122,7 @@
                 <h5></h5>
                 <h6>жиры</h6>
                 <hr class="featurette-divider">
-                <p>15 / 52г</p>
+                <p th:text="${plusFat}"></p>
             </center>
         </div>
 
@@ -162,7 +155,7 @@
                     <div class="col-md-2 text-center" style="color: black; padding: 10px;">
                         <div class="text-center">
                             <h1></h1>
-                            <a href="/products" type="button" class="btn btn-primary btn-danger btn-lg">+</a>
+                            <form method = "post" th:action = "'/products/'+${userId}"><a th:href="'/products/'+${userId}" type="submit" class="btn btn-primary btn-danger btn-lg">+</a></form>
                         </div>
                     </div>
 
@@ -192,7 +185,7 @@
                     <div class="col-md-2 text-center" style="color: black; padding: 10px;">
                         <div class="text-center">
                             <h1></h1>
-                            <a href="/exercises" type="button" class="btn btn-primary btn-danger btn-lg">+</a>
+                            <form method = "post"><a th:href="'/exercises/'+${userId}"  type="submit" class="btn btn-primary btn-danger btn-lg">+</a></form>
                         </div>
                     </div>
 

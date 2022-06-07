@@ -36,23 +36,25 @@ public class HomeController {
     @Autowired
     private PlanService planService;
 
-    @GetMapping("/home")
-    public String home(/*@RequestParam("weight") Double weight,*/ Model model) {
-        Iterable<Plan> plan = planRepository.findAll();
+    //@GetMapping("/home")
+    //public String home(/*@RequestParam("weight") Double weight,*/ Model model) {
+      //  Iterable<Plan> plan = planRepository.findAll();
         //узнать ид пользователя-ид плана-нужные поля плана
-        Iterable<Product> products = productRepository.findAll();
+       /* Iterable<Product> products = productRepository.findAll();
          double count = 0;
-        for(Plan item : plan)
+
+         for(Plan item : plan)
         {
             count +=1;//item.getPlusCaloric()*products.;
         }
+
         planService.addPlan(count);
         model.addAttribute("caloric", count);
 
         model.addAttribute("plusCaloric", plan);
 
         return "home";
-    }
+    }*/
 
     /*@PostMapping("/home")
     public String homePost(Model model, @RequestParam("weight") Double weight) {
@@ -63,21 +65,21 @@ public class HomeController {
         System.out.println("++++++++++++++++++++++++++"+weight);
         return "redirect:/home";
     }*/
-    @GetMapping("/products")
-    public String products(/*@RequestParam("weight") Double weight,*/ Model model) {
+    /*@GetMapping("/products")
+    public String products(@RequestParam("weight") Double weight, Model model) {
         Iterable<Product> products = productRepository.findAll();
         model.addAttribute("products", products);
         return "products";
-    }
+    }*/
 
-    @PostMapping("/products")
+    /*@PostMapping("/products")
     public String productsPost(@RequestParam("weight") Double weight, Model model) {
         Iterable<Product> products = productRepository.findAll();
 
         System.out.println("jjjjj");
         this.planService.addPlan(weight);
         return "redirect:/home";
-    }
+    }*/
 
     /*@PostMapping("/products/add")
     public String add(@RequestParam("plusCaloric") Double plusCaloric,
@@ -87,11 +89,11 @@ public class HomeController {
         //return "redirect:/";
     }*/
 
-    @RequestMapping("/exercises")
+    /*@RequestMapping("/exercises")
     public String exercises(Model model) {
         //model.addAttribute("exercises", "Exercises");
         return "exercises";
-    }
+    }*/
 
     @RequestMapping(value = "/**")
     public String error(){
